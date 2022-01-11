@@ -1,0 +1,17 @@
+body {background-color: #B1D4E0;} 
+
+.A{
+    color: rgba(12, 12, 206, 0.883);
+}
+
+.R{
+    color:red;
+}
+
+.T{
+    color: darkgreen;
+}
+
+.appBar{
+    background-color: #B1D4E0;
+}
