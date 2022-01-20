@@ -1,2 +1,2 @@
 # creARTe
-testing
+home page and authentication 
