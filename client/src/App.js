@@ -6,6 +6,9 @@ import PostDetails from './components/PostDetails/PostDetails';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
+import './App.css';
+// might have to change the name of ./component/Container as it might clash with above line 2
+// import Container from './component/Container/Container';
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
