@@ -2,13 +2,15 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import { createServer } from "http";
+import { Server } from "socket.io";
 
 import postRoutes from './routes/posts.js';
 import userRouter from "./routes/user.js";
 
 const app = express();
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+const httpServer = createServer(app);
+const io = new Server(httpServer);
 
 io.on('connection', (socket) => {
   console.log('User Online');
