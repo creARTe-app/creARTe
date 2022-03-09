@@ -7,30 +7,37 @@
 
 .button-container {
     text-align:right;
-   /* display: inline; */
-    
+   padding-top: 7px;
+   padding-right: 7px;
 } 
+
+#fileInput{
+    display: none;
+    z-index: 5;
+    position: absolute;
+  }
+
+
+.file-buttons{
+    /* border-radius: 8px; */
+    border-color: transparent;
+    padding-right: 20px;
+    font-size: 25px;
+    background-color: transparent;
+}
 
 .color-container {
     text-align: center;
-   display: inline;
-    color: white;
+    position:absolute;
+    top:1px;
+    left: 10px;
 } 
-
-.brushsize-container {
-    display: inline;
-    color: white;
-    margin-left: 12px;
-}
-
-.tools-section {
-    text-align: center;
-}
 
 .board-container {
     width: 90%;
     height: 90%;
     margin: auto;
-    margin-top: 2%;
+    margin-top: 1%;
     background: white;
+    border-radius: 25px;
 }

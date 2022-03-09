@@ -6,8 +6,7 @@ class Board extends React.Component {
 
     timeout;
     socket = io.connect("http://localhost:3000");
-
-    //ctx;
+    ctx;
     //isDrawing = false;
 
     constructor(props) {
@@ -36,17 +35,38 @@ class Board extends React.Component {
         this.drawCanvas();
     }
 
+    componentWillReceiveProps(propsNext){
+        this.ctx.strokeStyle = propsNext.color;
+    }
+
     drawCanvas() {
         let canvas = document.getElementById("board");
-
+        
         canvas.width = 0.98 * window.innerWidth;
         canvas.height = 0.95 * window.innerHeight;
+        
+        this.ctx = canvas.getContext("2d");
+        var ctx = this.ctx;
 
-        let ctx = canvas.getContext("2d");
+        const upload =document.getElementById("fileInput");
+        upload.addEventListener('change',(e)=>{
+          console.log(canvas.height,canvas.width);
+          const myFile = upload.files[0];
+          console.log(myFile.name);
+          const img = new Image();
+          img.src = URL.createObjectURL(myFile);
+          img.onload = function(){
+            console.log(img.height,img.width);
+            ctx.drawImage(img,0,0,canvas.width,canvas.height);
+            }
+        })
+
         //x and y coordinates
         let x;
         let y;
         let Down = false;
+
+        ctx.strokeStyle = this.props.color;
 
         // on mouse click
         window.onmousedown = (e) => {
@@ -74,6 +94,20 @@ class Board extends React.Component {
                 }, 100)
             }
         }
+
+        function onSave() {
+            canvas.toBlob((blob) => {
+              const timestamp = Date.now().toString();
+              const a = document.createElement('a');
+              document.body.append(a);
+              a.download = `creArte-${timestamp}.png`;
+              a.href = URL.createObjectURL(blob);
+              a.click();
+              a.remove();
+            });
+          }
+
+        document.querySelector('#save').addEventListener('click', onSave);
     }
 
     render() {
