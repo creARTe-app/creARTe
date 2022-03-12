@@ -7,13 +7,20 @@ class container extends React.Component{
         super(props);
 
         this.state = {
-            color: "#00000"
+            color: "#00000",
+            size: "50"
         }
     }
 
     newColor(params){
         this.setState({
             color: params.target.value
+        })   
+    }
+
+    brushSize(params){
+        this.setState({
+            size: params.target.value
         })   
     }
 
@@ -38,8 +45,15 @@ class container extends React.Component{
                         <i class="fa fa-upload" ></i> 
                     </button> */}
                 </div> 
+                <div className="brushsize-container">
+                    <div>
+                        Size: &nbsp;
+                    </div>
+                    <input id="slider" type="range" min="5" max="100" value={this.state.size} onChange={this.brushSize.bind(this)}></input>
+                </div>
+
                 <div class="board-container">
-                    <Board color={this.state.color}> </Board>
+                    <Board color={this.state.color} size={this.state.size}></Board>
                 </div>
             </div>
         )

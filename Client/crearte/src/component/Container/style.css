@@ -33,6 +33,13 @@
     left: 10px;
 } 
 
+.brushsize-container{
+    text-align: left;
+    position:absolute;
+    top:1px;
+    left:70px;
+}
+
 .board-container {
     width: 90%;
     height: 90%;
