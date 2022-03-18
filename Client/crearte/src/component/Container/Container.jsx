@@ -26,11 +26,17 @@ class container extends React.Component{
 
     render(){
         return(
+        <div>
             <div className="container">
+                <div class="board-container">
+                    <Board color={this.state.color} size={this.state.size}></Board>
+                </div>
+            </div>
+            <div>
                 <nav class="main-menu">
                 
-                    <div class="settings"></div>
-                    <div class="scrollbar" id="style-1"></div>
+                    {/* <div class="settings"></div>
+                    <div class="scrollbar" id="style-1"></div> */}
                     <ul>
                     
                             <li>
@@ -68,11 +74,9 @@ class container extends React.Component{
                             
                     </ul>
                 </nav>
-                
-                <div class="board-container">
-                    <Board color={this.state.color} size={this.state.size}></Board>
-                </div>
             </div>
+             
+        </div>
         )
     }
 }
