@@ -37,7 +37,7 @@ export default makeStyles((theme) => ({
     display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px', borderRadius: '15px', height: '39vh',
   },
   commentsOuterContainer: {
-    display: 'flex',
+    display: 'flex-column',
     justifyContent: 'space-between',
   },
   commentsInnerContainer: {

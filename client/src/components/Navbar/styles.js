@@ -35,7 +35,7 @@ export default makeStyles((theme) => ({
   profile: {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '300px',
+    width: '400px',
     alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
       width: 'auto',
@@ -48,8 +48,12 @@ export default makeStyles((theme) => ({
     color: 'white'
   },
   logout: {
-    marginLeft: '20px',
+    marginLeft: '0px',
     background: '#0C2D48',
+    color: 'white'
+  },  chats: {
+    marginLeft: '20px',
+    background: '#145DA0',
     color: 'white'
   },
   userName: {
@@ -65,7 +69,6 @@ export default makeStyles((theme) => ({
     fontSize: '30'
   },
   purple: {
-    // color: theme.palette.getContrastText(deepPurple[500]),
     color: '#0C2D48',
     backgroundColor: '#B1D4E0',
   },

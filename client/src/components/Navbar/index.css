@@ -1,13 +1,24 @@
 
 .A{
     color: red;
-   }
+}
    
-   .R{
-   color: darkgreen;
-   }
+.R{
+    color: darkgreen;
+}
    
-   .T{
+.T{
    color: blue;
-   }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
 

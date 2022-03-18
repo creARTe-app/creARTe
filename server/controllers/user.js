@@ -1,7 +1,11 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import crypto from 'crypto';
+import dotenv from "dotenv"
 
 import UserModal from "../models/user.js";
+
+dotenv.config();
 
 const secret = 'test';
 
