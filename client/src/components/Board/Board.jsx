@@ -5,17 +5,22 @@ import './style.css';
 class Board extends React.Component {
 
     timeout;
-    socket = io.connect("http://localhost:3001");
+    socket;
+    room; 
     ctx;
+    thedata;
     isDrawing = false;
 
     constructor(props) {
         super(props);
 
+        this.socket = props.socket;
+        this.room = props.room;
+        
         this.socket.on("canvas-data", function(data){
 
-        var root = this;
-        var interval = setInterval(function(){
+            var root = this;
+            var interval = setInterval(function(){
 
             if(root.isDrawing) 
                 return;
@@ -44,6 +49,7 @@ class Board extends React.Component {
     componentWillReceiveProps(propsNext){
         this.ctx.strokeStyle = propsNext.color;
         this.ctx.lineWidth = propsNext.size;
+        alert(this.room);
     }
 
     drawCanvas() {

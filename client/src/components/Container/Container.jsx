@@ -1,14 +1,17 @@
 import React from "react";
-import Board from "../Board/App";
+import Board from "../Board/Board";
 import './style.css';
 
 class container extends React.Component {
-    constructor(props){
-        super(props);
+    
+    constructor({socket,room}){
+        super({socket,room});
 
         this.state = {
             color: "#00000",
-            size: "10"
+            size: "10",
+            sockets: socket,
+            rooms: room
         }
     }
 
@@ -24,12 +27,14 @@ class container extends React.Component {
         })   
     }
 
+
+
     render(){
         return(
         <div>
             <div className="container">
                 <div class="board-container">
-                    <Board color={this.state.color} size={this.state.size}></Board>
+                    <Board color={this.state.color} size={this.state.size} socket={this.state.sockets} room={this.state.rooms}></Board>
                 </div>
             </div>
             <div>
@@ -81,4 +86,4 @@ class container extends React.Component {
     }
 }
 
-export default container
+export default container;

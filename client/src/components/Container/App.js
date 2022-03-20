@@ -1,7 +1,7 @@
 import "./App.css";
 import io from "socket.io-client";
 import React, { useState } from "react";
-import Board from "./Board";
+import Container from "../Container/Container";
 
 const socket = io.connect("http://localhost:3001");
 
@@ -40,7 +40,7 @@ function App() {
           <button onClick={joinRoom}>Join A Room</button>
         </div>
       ) : (
-        <Board socket={socket} username={username} room={room} />
+        <Container socket={socket} room={room} />
       )}
     </div>
     </>
