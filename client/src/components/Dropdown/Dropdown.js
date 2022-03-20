@@ -31,6 +31,7 @@ export default function MenuPopupState() {
             <MenuItem className={classes.options} onClick={popupState.close} component={Link} to="/">Home</MenuItem>
             <MenuItem className={classes.options} onClick={popupState.close} component={Link} to="/profile">Profile</MenuItem>
             <MenuItem className={classes.options} onClick={popupState.close} component={Link} to="/chats">Chat</MenuItem>
+            <MenuItem onClick={popupState.close} component={Link} to="/collaboration">Collab</MenuItem>
             <MenuItem className={classes.logout} onClick={logout}>Logout</MenuItem>
           </Menu>
         </React.Fragment>
