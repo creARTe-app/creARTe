@@ -11,7 +11,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
 
-/* .settings {
+.settings {
   
   height: 0%; 
   float:right;
@@ -23,7 +23,7 @@
 font-size:20px;
 font-family: 'Strait', sans-serif;
 
-} */
+}
 
 /* ScrolBar  */
 /* .scrollbar
@@ -68,7 +68,7 @@ background-color: #c3f7ff;
 } */
 /* Scrollbar End */ 
 
-.fa {
+.fa, .fa-solid{
 position: relative;
 display: table-cell;
 width: 55px;
@@ -168,7 +168,6 @@ overflow:visible;
   
 }
 
-
 /* Logo Hover Property */
 
 
@@ -192,9 +191,6 @@ transition: all 0.1s ease-in-out, width 0, height 0, top 0, left 0;
 a:hover,a:focus {
 text-decoration:none;
 border-left:0px solid #F7F7F7;
-
-
-
 }
 
 nav {

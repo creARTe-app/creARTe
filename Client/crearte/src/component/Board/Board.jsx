@@ -1,6 +1,7 @@
 import React from 'react';
 import io from 'socket.io-client';
 import './style.css';
+import rough from 'roughjs';
 
 class Board extends React.Component {
 
@@ -55,6 +56,9 @@ class Board extends React.Component {
         var sketch_style = getComputedStyle(sketch);
         canvas.width = parseInt(sketch_style.getPropertyValue('width'));
         canvas.height = parseInt(sketch_style.getPropertyValue('height'));
+
+        // const rc = rough.canvas(canvas);
+        // rc.rectangle(200,200,canvas.width,canvas.height);
 
         const upload =document.getElementById("fileInput");
         upload.addEventListener('change',(e)=>{

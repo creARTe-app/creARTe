@@ -35,13 +35,12 @@ class container extends React.Component{
             <div>
                 <nav class="main-menu">
                 
-                    {/* <div class="settings"></div>
-                    <div class="scrollbar" id="style-1"></div> */}
+                    <div class="settings"></div>
                     <ul>
                     
                             <li>
                                 <a>
-                                    <i class="fa fa-paint-brush fa-lg"></i> 
+                                    <i class="fa-solid fa-paint-roller fa-lg"></i>
                                     <span className="nav-text"><input type="color" value={this.state.color} onChange={this.newColor.bind(this)}></input></span>
                                 </a>
                                 
@@ -58,18 +57,22 @@ class container extends React.Component{
 
                             
                             <li>
-                                
-                                <button className="file-buttons" id="save">
-                                    <i class="fa fa-save fa-lg"></i>
-                                </button>
-
+                                <a>
+                                    <button className="file-buttons" id="save">
+                                        <i class="fa fa-save fa-lg"></i>
+                                    </button>
+                                    <span class="nav-text">SAVE</span>
+                                </a>
                             </li>
 
                             <li>
-                                <label className="file-buttons" for="fileInput"> 
-                                    <i class="fa fa-upload fa-lg"></i> 
-                                </label>
-                                <input id="fileInput" type="file"/>
+                                <a>
+                                    <label className="file-buttons" for="fileInput"> 
+                                        <i class="fa fa-upload fa-lg"></i> 
+                                    </label>
+                                    <input id="fileInput" type="file"/>
+                                    <span class="nav-text">Import</span>
+                                </a>
                             </li>
                             
                     </ul>
