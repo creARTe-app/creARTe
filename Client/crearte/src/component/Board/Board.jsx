@@ -73,6 +73,11 @@ class Board extends React.Component {
             }
         })
 
+        // erase everything
+        // const clearAll = () => {
+        //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // }
+
         var mouse = {x: 0, y: 0};
         var last_mouse = {x: 0, y: 0};
 
@@ -129,6 +134,7 @@ class Board extends React.Component {
           }
 
         document.querySelector('#save').addEventListener('click', onSave);
+       // document.querySelector('#erase').addEventListener('click', clearAll);
     }
 
     render() {

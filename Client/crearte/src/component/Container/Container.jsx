@@ -39,40 +39,40 @@ class container extends React.Component{
                     <ul>
                     
                             <li>
-                                <a>
+                                
                                     <i class="fa-solid fa-paint-roller fa-lg"></i>
                                     <span className="nav-text"><input type="color" value={this.state.color} onChange={this.newColor.bind(this)}></input></span>
-                                </a>
                                 
-                                
+                            </li>
+
+                            <li>
+                            
+                                <i class="fa fa-paint-brush fa-lg"></i> 
+                                <span class="nav-text"><input id="slider" type="range" min="5" max="100" value={this.state.size} onChange={this.brushSize.bind(this)}></input></span>
                             
                             </li>
 
                             <li>
-                                <a>
-                                    <i class="fa fa-paint-brush fa-lg"></i> 
-                                    <span class="nav-text"><input id="slider" type="range" min="5" max="100" value={this.state.size} onChange={this.brushSize.bind(this)}></input></span>
-                                </a>
+                                <i class='fa-solid fa-eraser fa-lg'></i>
+                                <span class="nav-text">CLEAR ALL</span>
                             </li>
-
                             
                             <li>
-                                <a>
+                              
                                     <button className="file-buttons" id="save">
                                         <i class="fa fa-save fa-lg"></i>
                                     </button>
                                     <span class="nav-text">SAVE</span>
-                                </a>
+                               
                             </li>
 
                             <li>
-                                <a>
                                     <label className="file-buttons" for="fileInput"> 
                                         <i class="fa fa-upload fa-lg"></i> 
                                     </label>
                                     <input id="fileInput" type="file"/>
                                     <span class="nav-text">Import</span>
-                                </a>
+                              
                             </li>
                             
                     </ul>
