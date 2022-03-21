@@ -53,7 +53,10 @@ class container extends React.Component{
                             </li>
 
                             <li>
-                                <i class='fa-solid fa-eraser fa-lg'></i>
+                                <button className="file-buttons" id="erase">
+                                    <i class='fa-solid fa-eraser fa-lg'></i>
+                                </button>
+                                
                                 <span class="nav-text">CLEAR ALL</span>
                             </li>
                             
