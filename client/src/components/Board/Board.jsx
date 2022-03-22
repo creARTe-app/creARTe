@@ -1,9 +1,7 @@
 import React from 'react';
-import io from 'socket.io-client';
 import './style.css';
 
 class Board extends React.Component {
-
     timeout;
     socket;
     room; 
@@ -16,9 +14,9 @@ class Board extends React.Component {
 
         this.socket = props.socket;
         this.room = props.room;
-        
-        this.socket.on("canvas-data", function(data){
 
+        this.socket.on("canvas-data",function(data){
+            
             var root = this;
             var interval = setInterval(function(){
 
@@ -49,13 +47,13 @@ class Board extends React.Component {
     componentWillReceiveProps(propsNext){
         this.ctx.strokeStyle = propsNext.color;
         this.ctx.lineWidth = propsNext.size;
-        alert(this.room);
     }
 
     drawCanvas() {
         let canvas = document.querySelector('#board');
         this.ctx = canvas.getContext('2d');
         var ctx = this.ctx;
+        var theroom = this.room;
 
         var sketch = document.querySelector('#sketch');
         var sketch_style = getComputedStyle(sketch);
@@ -114,7 +112,7 @@ class Board extends React.Component {
             if(root.timeout != undefined) clearTimeout(root.timeout);
             root.timeout = setTimeout(function(){
                 var base64ImageData = canvas.toDataURL("image/png");
-                root.socket.emit("canvas-data", base64ImageData);
+                root.socket.emit("canvas-data", {image : base64ImageData , room : theroom});
             }, 100)
         };
 

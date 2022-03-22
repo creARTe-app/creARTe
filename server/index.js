@@ -29,14 +29,11 @@ const io = new Server(server, {
   },
 });   
 
-var roomNum;
-
 io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
 
   socket.on("join_room", (data) => {
     socket.join(data);
-    roomNum = data;
     console.log(`User with ID: ${socket.id} joined room: ${data}`);
   });
 
@@ -45,7 +42,8 @@ io.on("connection", (socket) => {
   });
 
   socket.on('canvas-data', (data) => {
-    socket.broadcast.emit('canvas-data', data);
+   socket.to(data.room).emit('canvas-data', data.image);
+  //  console.log(data.room);
   })
 
   socket.on("disconnect", () => {

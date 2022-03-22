@@ -14,15 +14,16 @@ function App() {
     if (username !== "" && room !== "") {
       socket.emit("join_room", room);
       setShowChat(true);
+      document.getElementById("room-form").classList.remove("App");
     }
   };
 
   return (
     <>
-    <div className="App">
+    <div class="App" id="room-form">
       {!showChat ? (
         <div className="joinChatContainer">
-          <h3>Join A Chat</h3>
+          <h3>Join A Room</h3>
           <input
             type="text"
             placeholder="Name..."
@@ -37,10 +38,10 @@ function App() {
               setRoom(event.target.value);
             }}
           />
-          <button onClick={joinRoom}>Join A Room</button>
+          <button onClick={joinRoom}>Join</button>     
         </div>
       ) : (
-        <Container socket={socket} room={room} />
+        <Container socket={socket} username={username} room={room} />
       )}
     </div>
     </>
