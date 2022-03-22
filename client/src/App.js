@@ -6,7 +6,7 @@ import PostDetails from './components/PostDetails/PostDetails';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
-import Chat from './components/Chat/App';
+import collab from './components/Container/App';
 import Profile from './components/Profile/Profile'
 import UsersList from './components/Admin/UserList'
 import PostsList from './components/Admin/PostsList'
@@ -25,7 +25,7 @@ const App = () => {
           <Route path="/usersList" exact component={UsersList} />
           <Route path="/postsList" exact component={PostsList} />
           <Route path="/profile" exact component={Profile} />
-          <Route path="/chats" exact component={Chat} />
+          <Route path="/collaboration" exact component= {collab} />
           <Route path="/posts/search" exact component={Home} />
           <Route path="/posts/:id" exact component={PostDetails} />
           <Route path="/auth" exact component={() => (!user ? <Auth /> : <Redirect to="/posts" />)} />

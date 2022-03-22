@@ -39,7 +39,7 @@ export default function MenuPopupState() {
             <MenuItem className={classes.options} onClick={popupState.close} component={Link} to="/profile">Profile</MenuItem>
             )}
             {!(user?.result?.role === 'admin') && (
-            <MenuItem className={classes.options} onClick={popupState.close} component={Link} to="/chats">Chat</MenuItem>
+            <MenuItem className={classes.options} onClick={popupState.close} component={Link} to="/collaboration">Collab</MenuItem>
             )}
             <MenuItem className={classes.logout} onClick={logout} component={Link} to="/auth">Logout</MenuItem>
           </Menu>

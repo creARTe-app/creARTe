@@ -1,4 +1,4 @@
-.App {
+/* .App {
   width: 96vw;
   height: 70vh;
   background: #fff;
@@ -49,7 +49,7 @@ body {
 
 .joinChatContainer button:hover {
   background: #145DA0;
-}
+} */
 
 .chat-window {
   width: 300px;
@@ -64,7 +64,7 @@ body {
   border-radius: 6px;
   margin-bottom: 1.05rem;
   background: #B1D4E0;
-  position: relative;
+  /* position: relative; */
   cursor: pointer;
 }
 .chat-window .chat-header p {
@@ -79,9 +79,8 @@ body {
   height: calc(450px - (45px + 70px));
   border: 1px solid #2E8BC0;
   background: #fff;
-
   position: relative;
-}
+} 
 .chat-window .chat-body .message-container {
   width: 100%;
   height: 100%;
