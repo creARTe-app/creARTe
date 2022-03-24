@@ -28,3 +28,5 @@ export const signUp = (formData) => API.post('/user/signup', formData);
 
 export const fetchUsers = () => API.get(`/user/adminPage`);
 export const deleteUser = (id) => API.delete(`/user/adminPage/${id}`);
+export const savePost = (post, user) => API.put(`/user/savePost` , {post, user});
+export const getSavedPosts = (id) => API.get(`/user/getSavedPosts/${id}`)

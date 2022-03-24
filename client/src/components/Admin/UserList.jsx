@@ -18,8 +18,9 @@ const UserList = () => {
   useEffect(() => {
 
     const fetchUsers = async () => {
-      const getUsers = await dispatch(getAllUsers())
-      setUsers(getUsers.users);
+      const getUsers = await dispatch(getAllUsers());
+      const u = getUsers.users?.filter(user => user?.role !== 'admin');
+      setUsers(u);
     }
 
     if(!users){

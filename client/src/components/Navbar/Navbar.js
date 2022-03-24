@@ -20,9 +20,9 @@ const Navbar = () => {
   const logout = () => {
     dispatch({ type: actionType.LOGOUT });
 
-    history.push('/auth');
-
     setUser(null);
+    history.push('/auth');
+    
   };
 
   useEffect(() => {

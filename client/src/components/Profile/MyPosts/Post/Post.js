@@ -8,32 +8,23 @@ import { useDispatch } from 'react-redux';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
 
-import report from '../../../images/complaint.png'
-import save from '../../../images/save.png'
-import { getPost, likePost, deletePost, reportPost } from '../../../actions/posts';
-import { savePost } from '../../../actions/users';
+import report from '../../../../images/complaint.png'
+import { getPost, likePost, deletePost, reportPost } from '../../../../actions/posts';
 import useStyles from './styles';
-import CustomPopupR from './PopUpReport/PopUp'
-import CustomPopupS from './PopUpSave/PopUp'
+import CustomPopup from './PopUp'
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
   const history = useHistory();
-  const [visibilityR, setVisibilityR] = useState(false);
-  const [visibilityS, setVisibilityS] = useState(false);
+  const [visibility, setVisibility] = useState(false);
 
-  const popupCloseHandlerR = (e) => {
+  const popupCloseHandler = (e) => {
     console.log('post reported pop up')
-    setVisibilityR(e);
+    setVisibility(e);
   };
 
-  const popupCloseHandlerS = (e) => {
-    console.log('post reported pop up')
-    setVisibilityS(e);
-  };
-  
   const Likes = () => {
     if (post?.likes?.length > 0) {
       return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
@@ -53,22 +44,13 @@ const Post = ({ post, setCurrentId }) => {
     history.push(`/posts/${post._id}`);
   };
 
-  const [hoverR, setHoverR] = useState(false);
-  const [hoverS, setHoverS] = useState(false);
-  const onHoverR = () => {
-    setHoverR(true);
+  const [hover, setHover] = useState(false);
+  const onHover = () => {
+    setHover(true);
   };
 
-  const onLeaveR = () => {
-    setHoverR(false);
-  };
-
-  const onHoverS = () => {
-    setHoverS(true);
-  };
-
-  const onLeaveS = () => {
-    setHoverS(false);
+  const onLeave = () => {
+    setHover(false);
   };
 
   return (
@@ -111,33 +93,20 @@ const Post = ({ post, setCurrentId }) => {
           <Likes />
         </Button>
         {!(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator || user?.result?.role === 'admin') && (
-          <Button className={classes.saveDiv} disabled={!user?.result} onMouseEnter={onHoverS} onMouseLeave={onLeaveS} onClick={() => {dispatch(savePost( post?._id, user?.result?._id ))
-          setVisibilityS(!visibilityS);}} >  
-            {hoverS ? "Save" : <img className={classes.report} src={save} />}
-          </Button>
-        )}
-          <CustomPopupS
-            onClose={popupCloseHandlerS}
-            show={visibilityS}
-            title="Post Saved"
-          >
-            <p>Your post was succesfully saved, to view it later visit your profile </p>
-          </CustomPopupS>
-        {!(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator || user?.result?.role === 'admin') && (
-          <Button className={classes.reportDiv} disabled={!user?.result} onMouseEnter={onHoverR} onMouseLeave={onLeaveR}
+          <Button className={classes.reportDiv} disabled={!user?.result} onMouseEnter={onHover} onMouseLeave={onLeave} 
             onClick={() => {dispatch(reportPost(post._id))  
-            setVisibilityR(!visibilityR);
+            setVisibility(!visibility);
             }} >
-            {hoverR ? "Report" : <img className={classes.save} src={report} />}
+            {hover ? "Report!" : <img className={classes.report} src={report} />}
           </Button>
         )}
-          <CustomPopupR
-            onClose={popupCloseHandlerR}
-            show={visibilityR}
+          <CustomPopup
+            onClose={popupCloseHandler}
+            show={visibility}
             title="Post reported"
           >
             <p>We are on it, if this post is found to be offensive it will be removed. Thank you for your feedback! </p>
-          </CustomPopupR>
+          </CustomPopup>
         {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator || user?.result?.role === 'admin') && (
           <Button size="small" color="secondary" onClick={() => dispatch(deletePost(post._id))}>
             <DeleteIcon fontSize="small" /> &nbsp; Delete

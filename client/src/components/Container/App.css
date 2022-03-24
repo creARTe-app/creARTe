@@ -1,8 +1,8 @@
 .App {
-    width: 90%;
+    width: 92vw;
     height: 90vh;
-    margin-top: 2.5%;
-    margin-left: 5%;
+    margin-top: 1.9rem;
+    margin-left: 2rem;
     background: #fff;
     color: #0C2D48;
     font-family: "Open Sans", sans-serif;
@@ -19,7 +19,6 @@ body {
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 
 .joinChatContainer {
-    position: absolute;
     display: flex;
     flex-direction: column;
     text-align: center;

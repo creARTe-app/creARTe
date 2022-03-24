@@ -45,6 +45,7 @@ export default makeStyles({
     padding: '0 16px',
   },
   cardActions: {
+    padding: '0 16px 8px 16px',
     display: 'flex',
     justifyContent: 'space-between',
   },
@@ -57,15 +58,6 @@ export default makeStyles({
     width: '.99rem',
   },
   reportDiv: {
-    color: 'red',
-    fontSize: '.7rem',
-  }, 
-  save: {
-    height: '.99rem',
-    width: '.99rem',
-  }, 
-  saveDiv: {
-    color: '#2E8BC0',
-    fontSize: '.7rem',
+    color: 'red'
   }
 });

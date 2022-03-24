@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 
 import UserModal from "../models/user.js";
+import { json } from "express";
 
 dotenv.config();
 
@@ -73,4 +74,39 @@ export const deleteUser = async (req, res) => {
     if(mainUser.role === 'admin'){ await UserModal.findByIdAndRemove(id);}//
 
     res.json({ message: "User deleted successfully." });
+}
+
+export const getSavedPosts = async (req, res) => {
+
+  try {
+    const userId = req.params.id;
+    const mainUser = await UserModal.findById(userId).populate("savedPosts");
+    const savedPosts = mainUser.savedPosts
+  
+    res.json({savedPosts: savedPosts});
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+export const savePost = async (req, res) => {
+  try {
+    const { post: postId, user: userId } = req.body;
+
+    const mainUser = await UserModal.findById(userId);  
+
+    if(!mainUser.savedPosts.includes(postId)){
+      mainUser.savedPosts.push(postId);
+      await mainUser.save();
+    }
+
+    res.json({mainUser});
+
+
+  } catch (error) {
+    console.log(error);
+    
+  }
+  
 }

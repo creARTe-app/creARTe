@@ -17,6 +17,8 @@ font-size:20px;
 
 }
 
+
+
 .main-menu:hover, nav.main-menu.expanded {
 width:250px;
 overflow:hidden;
@@ -30,7 +32,7 @@ position:absolute;
 top:auto;
 height:auto;
 left:0;
-width:50px;
+width:55px;
 overflow:hidden;
 -webkit-transition:width .2s linear;
 transition:width .2s linear;
