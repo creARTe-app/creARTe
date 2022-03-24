@@ -1,5 +1,5 @@
 import "./profile.css"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Grow, Grid, AppBar, TextField, Button, Paper } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -8,37 +8,46 @@ import { getPostsBySearch } from '../../actions/posts';
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 import Pagination from '../Pagination';
-import useStyles from './styles';
 
 const Profile = () => {
+
+
+  const [user, setUser] = useState(null)
+  const [post, setPost] = useState(null)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const u = JSON.parse(localStorage.getItem('profile'));
+    setUser(u)
+
+    // const p = dispatch(fetchPost)
+
+  }, [user])
+
   return (
     <>
-      <Topbar />
-      <div className="profile">
-        <Sidebar />
-        <div className="profileRight">
-        <div className="profileRightTop">
-          <div className="profileCover">
-          <img className="profileCoverImg" 
-              src="assets/post/3.jpeg" 
-              alt="" 
-              />
-          <img className="profileUserImg" 
-               src="assets/person/7.jpeg" 
-               alt="" 
-               />
-         </div>
-          <div className= "profileInfo">
-            <h4 className= "profileInfoName" >Sai Shriya</h4>
-            <span className= "profileInfoDesc" >hello everyone</span>
-          </div>
-        </div> 
-        <div className="profileRightBottom"></div>
-         <Feed />
-         <Rightbar />
-        </div>
-        
+{
+  user && <div className="profile">
+  <div className="profileRight">
+  <div className="profileRightTop">
+    <div className="profileCover">
+    <div className="initial-letter">
+      
+      <p>{user?.result?.name[0]}</p>
       </div>
+    </div>
+   
+    <div className= "profileInfo">
+      <h4 className= "profileInfoName" >{user?.result?.name}</h4>
+      <span className= "profileInfoDesc" ></span>
+    </div>
+  </div> 
+  <div className="profileRightBottom"></div>
+  </div>
+  
+</div>
+}
     </>
   )
 }
