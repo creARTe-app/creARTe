@@ -1,6 +1,6 @@
 import "./App.css";
 import io from "socket.io-client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "../Container/Container";
 
 
@@ -10,7 +10,18 @@ function App() {
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
   const [showChat, setShowChat] = useState(false);
+  const user = JSON.parse(localStorage.getItem('profile'));
+  const [usernamechat, setUsernamechat] = useState(false);
+  
+  useEffect(() =>{
+    if(usernamechat === false){
+      setUsername(user?.result?.name)
+      setUsernamechat(!usernamechat)
+    }
+  })
 
+  
+  //alert(username)
   const joinRoom = () => {
     if (username !== "" && room !== "") {
       socket.emit("join_room", room);
@@ -25,13 +36,13 @@ function App() {
       {!showChat ? (
         <div className="joinChatContainer">
           <h3>Join A Room</h3>
-          <input
+          {/* <input
             type="text"
             placeholder="Name..."
             onChange={(event) => {
-              setUsername(event.target.value);
+              //setUsername(event.target.value);
             }}
-          />
+          /> */}
           <input
             type="text"
             placeholder="Chatroom ID..."

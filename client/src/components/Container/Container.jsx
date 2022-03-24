@@ -78,6 +78,11 @@ class container extends React.Component {
                                 </label>
                                 <input id="fileInput" type="file" />
                             </li>
+                            <li>
+                                <button className="file-buttons" id="rubber">
+                                    <i> </i>
+                                </button>
+                            </li>
                         </ul>
                     </nav>
                 </div>
