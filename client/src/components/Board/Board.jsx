@@ -82,8 +82,8 @@ class Board extends React.Component {
 
             /* fixes the problem where start of drawing does not coincide
             with the x and y coordinates of mouse click */
-            mouse.x = e.pageX - this.offsetLeft - 23;
-            mouse.y = e.pageY - this.offsetTop - 150;
+            mouse.x = e.pageX - canvas.offsetLeft - 20;
+            mouse.y = e.pageY - canvas.offsetTop;
         }, false);
 
         ctx.lineWidth = this.props.size;
