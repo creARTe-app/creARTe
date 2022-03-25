@@ -13,10 +13,9 @@ export default function MenuPopupState() {
 
   const logout = () => {
     dispatch({ type: actionType.LOGOUT });
-
     history.push('/auth');
-
     setUser(null);
+    document.location.reload()
   };
   const classes = useStyles();
 
