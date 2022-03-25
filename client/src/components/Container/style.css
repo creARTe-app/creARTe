@@ -1,23 +1,20 @@
 
 .container {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   background-color: lightblue;
 }
 
 .fa {
-position: relative;
-display: table-cell;
-width: 55px;
-height: 36px;
-text-align: center;
-top:20px; 
-font-size:20px;
-
+  position: relative;
+  display: table-cell;
+  width: 55px;
+  height: 36px;
+  text-align: center;
+  top:20px; 
+  font-size:20px;
 }
-
-
 
 .main-menu:hover, nav.main-menu.expanded {
 width:250px;
@@ -32,7 +29,7 @@ position:absolute;
 top:auto;
 height:auto;
 left:0;
-width:55px;
+width:50px;
 overflow:hidden;
 -webkit-transition:width .2s linear;
 transition:width .2s linear;
@@ -74,7 +71,6 @@ text-shadow: 1px 1px 1px  #fff;
 }
 
 .main-menu .nav-icon {
-  
 position:relative;
 display:table-cell;
 width:55px;
@@ -82,11 +78,9 @@ height:36px;
 text-align:center;
 vertical-align:middle;
 font-size:18px;
-
 }
 
 .main-menu .nav-text  {
-   
 position:relative;
 display:table-cell;
 vertical-align:middle;
@@ -105,7 +99,7 @@ font-family: 'Titillium Web', sans-serif;
   width: 35px;
   position:relative;
   padding-left: 10px;
-  padding-top: 10px;
+  padding-top: 15px;
   border-radius: 5px; 
   border-color: transparent;
   /* font-size: 55px; */
@@ -213,12 +207,12 @@ nav ul,nav li {
 }
 
 .board-container {
-    width: 90%;
-    height: 90%;
-    margin: auto;
-    margin-top: 2%;
-    background: white;
-    border-radius: 25px;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  margin-top: 2%;
+  background: white;
+  border-radius: 25px;
 }
 
 .chat-button {

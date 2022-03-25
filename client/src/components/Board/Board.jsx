@@ -82,8 +82,8 @@ class Board extends React.Component {
 
             /* fixes the problem where start of drawing does not coincide
             with the x and y coordinates of mouse click */
-            mouse.x = e.pageX - this.offsetLeft - 23;
-            mouse.y = e.pageY - this.offsetTop - 150;
+            mouse.x = e.pageX - this.offsetLeft - 20;
+            mouse.y = e.pageY - this.offsetTop;
         }, false);
 
         ctx.lineWidth = this.props.size;
@@ -128,7 +128,12 @@ class Board extends React.Component {
             });
           }
 
+          function onErase(){
+            ctx.strokeStyle = "#ffffff";
+          }
+
         document.querySelector('#save').addEventListener('click', onSave);
+        document.querySelector('#rubber').addEventListener('click', onErase);
     }
 
     render() {

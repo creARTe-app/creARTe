@@ -7,6 +7,9 @@ import SaveIcon from '@material-ui/icons/Save';
 import PaletteIcon from '@material-ui/icons/Palette';
 import PublishIcon from '@material-ui/icons/Publish';
 import ChatIcon from '@material-ui/icons/Chat';
+import HowToVoteIcon from '@material-ui/icons/HowToVote';
+import HomeIcon from '@material-ui/icons/Home';
+import { Link } from 'react-router-dom';
 
 class container extends React.Component {
 
@@ -80,8 +83,12 @@ class container extends React.Component {
                             </li>
                             <li>
                                 <button className="file-buttons" id="rubber">
-                                    <i> </i>
+                                <i><HowToVoteIcon fontSize="medium"></HowToVoteIcon></i>
                                 </button>
+
+                            </li>
+                            <li>
+                                <Link to="/" className="btn btn-primary"><HomeIcon  class="size-icon" fontSize="medium"></HomeIcon></Link>
                             </li>
                         </ul>
                     </nav>
