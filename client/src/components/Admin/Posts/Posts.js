@@ -6,15 +6,17 @@ import Post from './Post/Post';
 import useStyles from './styles';
 import { getReportedPosts } from '../../../actions/posts';
 
-const Posts = ({ setCurrentId }) => {
+const Posts = ({ setCurrentId, loadPosts, setLoadPosts }) => {
   const { posts, isLoading } = useSelector((state) => state.posts);
   const classes = useStyles();
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if(!posts || posts?.length <= 0){
+    if(!posts || posts?.length <= 0 || !loadPosts){
       dispatch(getReportedPosts(1));
+      setLoadPosts(!loadPosts);
+
     }
   }, [posts]);
 
