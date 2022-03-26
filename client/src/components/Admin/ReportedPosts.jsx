@@ -6,6 +6,8 @@ import Navbar from '../Navbar/Navbar';
 
 const PostsList = () => {
   const [currentId, setCurrentId] = useState(0);
+  const [loadPosts, setLoadPosts] = useState(false);
+
 
   return (
     <>
