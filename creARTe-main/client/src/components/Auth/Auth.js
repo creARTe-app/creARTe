@@ -21,6 +21,8 @@ const SignUp = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword(!showPassword);
+  var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+
 
   const switchMode = () => {
     setForm(initialState);
@@ -32,7 +34,17 @@ const SignUp = () => {
     e.preventDefault();
 
     if (isSignup) {
-      dispatch(signup(form, history));
+      if(form.password == form.confirmPassword){
+        if(!(regularExpression.test(form.password))){
+         alert("Invalid Password\n\nPassword format:\n\u2022 At least 1 number\n\u2022 At least 1 symbol\n\u2022 Between 6 - 16 charecters")
+        }
+        else{
+          dispatch(signup(form, history));
+        }
+      }
+      else{
+        alert("Password does not match");
+      }
     } else {
       dispatch(signin(form, history));
     }
